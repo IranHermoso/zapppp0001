@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="https://testsap.cyt.conchaytoro.cl:8001/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='LOCAL')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZCDSPP_ETIQ_ORDEN_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="ZCDSPP_ETIQ_ORDENType" sap:label="Cuenta las etiquetas por cada orden" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="aufnr"/>
+                </Key>
+                <Property Name="aufnr" Type="Edm.String" Nullable="false" MaxLength="12" sap:display-format="UpperCase" sap:filter-restriction="interval" sap:required-in-filter="true" sap:label="Orden de Fabricación" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="sum_adh" Type="Edm.Int32" sap:label="Etiqueta ADH" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="sum_ppl" Type="Edm.Int32" sap:label="Etiqueta PPL" sap:creatable="false" sap:updatable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZCDSPP_ETIQ_ORDEN_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZCDSPP_ETIQ_ORDEN" EntityType="ZCDSPP_ETIQ_ORDEN_CDS.ZCDSPP_ETIQ_ORDENType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:searchable="true" sap:requires-filter="true" sap:content-version="1"/>
+            </EntityContainer>
+            <atom:link rel="self" href="https://testsap.cyt.conchaytoro.cl:8001/sap/opu/odata/sap/ZCDSPP_ETIQ_ORDEN_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="https://testsap.cyt.conchaytoro.cl:8001/sap/opu/odata/sap/ZCDSPP_ETIQ_ORDEN_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
